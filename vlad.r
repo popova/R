@@ -7,8 +7,8 @@ rm(list=ls())
 library(tidyverse)
 library(rnoaa)
 #ћожет зан€ть несколько минут лучше выполнить один раз в месте с хорошим интернетом и сохранить результат
-#station_data = ghcnd_stations()
-#write.csv(station_data, file = "station_data.csv")
+station_data = ghcnd_stations()
+write.csv(station_data, file = "station_data.csv")
 station_data = read.csv("station_data.csv")
 #ѕосле получени€ всписка всех станций, получите список станций ближайших к столице вашего региона,создав таблицу с именем региона и координатами его столицы
 vlad = data.frame(id = "Vlad", latitude = 43.116418,  longitude = 131.882475)
@@ -21,3 +21,5 @@ vlad_id1 = vlad_around[["Vlad"]][["id"]][1]
 vlad_id = vlad_around[["Vlad"]][["id"]]
 #ƒл€ получени€ всех данных с метеостанции, зна€ ее идентификатор, используйте след. команду
 all_vlad_data = meteo_tidy_ghcnd(stationid = vlad_id1)
+
+
